@@ -71,7 +71,7 @@ function Menu(game) {
 	};
 	this.create = function() {
 		game.add.sprite((game.width)/2, (game.height)/2, "title").anchor.setTo(0.5);
-		game.add.text((game.width)/2, 300, "按空格键开始", {fontSize: "16px", fill: "#fff" }).anchor.setTo(0.5);  
+		game.add.text((game.width)/2, 300, "Pressione barra de espaço para começar!", {fontSize: "16px", fill: "#fff" }).anchor.setTo(0.5);  
 		var enterKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 		enterKey.onDown.add(function(){game.state.start("main");}, this);
 		game.input.onTap.addOnce(function(){game.state.start("main");}, this);
@@ -286,7 +286,7 @@ function Main(game){
 	this.tileHit = function(fire, tile){
 		if([1,2,3,4].indexOf(tile.index) > -1){  //Bloco de mapa que pode ser destruído
 			if(tile.life==undefined){
-				tile.life = (tile.index==3 || tile.index==4) ? 5 : 2; //地图块生命：铁块5、砖块2
+				tile.life = (tile.index==3 || tile.index==4) ? 5 : 2; //Vida útil do bloco de mapas: bloco de ferro 5, tijolo 2
 			}
 			tile.life--;
 			if((tile.life<=0)){
@@ -365,7 +365,7 @@ function Main(game){
 		var over = myFires.getFirstDead(true,(game.width-32)/2, 320, "over-2");
 		game.add.tween(over).to({y:304},1000,"Linear",true).onComplete.add(function(){
 			game.add.sprite((game.width)/2, (game.height)/2, "over").anchor.setTo(0.5);
-			game.add.text((game.width)/2, (game.height)/2, "按空格键返回", {fontSize: "16px", fill: "#fff" }).anchor.setTo(0.5);
+			game.add.text((game.width)/2, (game.height)/2, "Pressione a barra de espaço para retornar", {fontSize: "16px", fill: "#fff" }).anchor.setTo(0.5);
 			isOver = true;
 		},this);
 	}; 
@@ -374,7 +374,7 @@ function Main(game){
 		enemyFires.setAll('alive',false);
 		myFires.setAll('alive',false);
 		game.add.sprite((game.width)/2, (game.height)/2, "over").anchor.setTo(0.5);
-		game.add.text((game.width)/2, (game.height)/2, "按空格键进入下一关", {fontSize: "16px", fill: "#fff" }).anchor.setTo(0.5);
+		game.add.text((game.width)/2, (game.height)/2, "Pressione a barra de espaço para entrar no próximo nível", {fontSize: "16px", fill: "#fff" }).anchor.setTo(0.5);
 		game.levelData.current++;
 		isOver = true;
 	}; 
