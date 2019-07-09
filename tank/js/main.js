@@ -184,7 +184,7 @@ function Main(game){
 		if(!game.device.desktop){
 			this.addTouchKey(); //btn virtual
 		}
-		scoreText = game.add.text(16, 16, "Enemy: " + score, { fontSize: "16px", fill: "#fff" });  
+		scoreText = game.add.text(18, 16, "Enemy: " + score, { fontSize: "16px", fill: "#fff" });  
 		scoreText.fixedToCamera=true;  
 	};
 	this.update = function(){
